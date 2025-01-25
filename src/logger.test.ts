@@ -7,4 +7,9 @@ describe('logger', () => {
     const logger2 = Logger.getInstance()
     expect(logger1).toBe(logger2)
   })
+  it('should log a message', () => {
+    const logger = Logger.getInstance()
+    logger.log('Test log message')
+    expect(logger.getLogs()).toContain('Test log message')
+  })
 })
