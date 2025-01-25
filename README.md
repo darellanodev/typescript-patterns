@@ -8,6 +8,10 @@ A repository to practice with patterns in TypeScript using the TDD methodology.
 
 - <https://github.com/darellanodev/typescript-patterns>
 
+## List of patterns used
+
+- Singleton: Logger
+
 ## Installation
 
 Execute `pnpm install`
