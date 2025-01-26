@@ -13,9 +13,17 @@ export class ExporterFactory {
     switch (type) {
       case 'txt':
         return new TxtExporter()
+      case 'json':
+        return new JsonExporter()
       default:
         throw new Error('Exporter type not supported')
     }
+  }
+}
+
+export class JsonExporter implements DataExporter {
+  getData(tasks: Task[]): string {
+    return JSON.stringify(tasks)
   }
 }
 
