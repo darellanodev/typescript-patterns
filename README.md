@@ -10,7 +10,8 @@ A repository to practice with patterns in TypeScript using the TDD methodology.
 
 ## List of patterns used
 
-- Singleton: Logger
+- Singleton: a logger system
+- Factory: a data exporter with many output formats
 
 ## Installation
 
