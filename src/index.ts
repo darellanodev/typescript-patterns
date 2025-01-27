@@ -28,4 +28,10 @@ const gameScoreTracker = new GameScoreTracker()
 const observer1: GameObserver = {
   update: (score: number) => console.log(`I'm the observer 1: ${score}`),
 }
+const observer2: GameObserver = {
+  update: (score: number) => console.log(`I'm the observer 2: ${score}`),
+}
 gameScoreTracker.subscribe(observer1)
+gameScoreTracker.subscribe(observer2)
+
+gameScoreTracker.setScore(100)

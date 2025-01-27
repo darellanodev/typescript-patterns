@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { GameScoreTracker, GameObserver } from './gameScoreTracker'
 
 describe('GameScoreTracker', () => {
@@ -9,5 +9,14 @@ describe('GameScoreTracker', () => {
     gameScoreTracker.subscribe(observer)
 
     expect(gameScoreTracker.observers).toContain(observer)
+  })
+  it('should notify the observers when the score changes', () => {
+    const gameScoreTracker = new GameScoreTracker()
+    const observer: GameObserver = { update: vi.fn() }
+    gameScoreTracker.subscribe(observer)
+
+    gameScoreTracker.setScore(100)
+
+    expect(observer.update).toHaveBeenCalledWith(100)
   })
 })
