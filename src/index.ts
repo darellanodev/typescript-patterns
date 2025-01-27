@@ -1,5 +1,6 @@
 import Logger from './logger'
 import { ExporterFactory, Task } from './exporter'
+import { GameScoreTracker, GameObserver } from './gameScoreTracker'
 
 const logger = Logger.getInstance()
 
@@ -21,3 +22,10 @@ console.log(logger.getLogs().join('\n'))
 
 console.log(data1)
 console.log(data2)
+
+// test gameScoreTracker
+const gameScoreTracker = new GameScoreTracker()
+const observer1: GameObserver = {
+  update: (score: number) => console.log(`I'm the observer 1: ${score}`),
+}
+gameScoreTracker.subscribe(observer1)
