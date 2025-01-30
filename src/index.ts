@@ -30,6 +30,26 @@ function testExporterFactory(): void {
   console.log(data2)
 }
 
+function testGameScoreTracker(): void {
+  console.log('Test gameScoreTracker\n=======================\n')
+
+  const gameScoreTracker = new GameScoreTracker()
+
+  const observer1: GameObserver = {
+    update: (score: number) => console.log(`I'm the observer 1: ${score}`),
+  }
+  const observer2: GameObserver = {
+    update: (score: number) => console.log(`I'm the observer 2: ${score}`),
+  }
+  gameScoreTracker.subscribe(observer1)
+  gameScoreTracker.subscribe(observer2)
+  gameScoreTracker.setScore(100)
+}
+
 testLogger()
 console.log('\n')
 testExporterFactory()
+console.log('\n')
+testGameScoreTracker()
+console.log('\n')
+console.log('Finished all the examples\n')
