@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { SimpleCoffee, MilkDecorator } from './drink'
+import { SimpleCoffee, MilkDecorator, ChocolateDecorator } from './drink'
 
 describe('Drink', () => {
   it('should create a simple coffee', () => {
@@ -16,5 +16,14 @@ describe('Drink decorators', () => {
 
     expect(coffeeWithMilk.getDescription()).toBe('Simple Coffee with Milk')
     expect(coffeeWithMilk.getCost()).toBe(1.5) // Assuming milk costs 0.5
+  })
+  it('should add chocolate to the coffee', () => {
+    const coffee = new SimpleCoffee()
+    const coffeeWithChocolate = new ChocolateDecorator(coffee)
+
+    expect(coffeeWithChocolate.getDescription()).toBe(
+      'Simple Coffee with Chocolate'
+    )
+    expect(coffeeWithChocolate.getCost()).toBe(1.2) // Assuming chocolate costs 0.2
   })
 })
