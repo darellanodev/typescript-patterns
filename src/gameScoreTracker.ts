@@ -10,6 +10,10 @@ export class GameScoreTracker {
     this.observers.push(observer)
   }
 
+  unsubscribe(observe: GameObserver) {
+    this.observers = this.observers.filter((ob) => ob !== observe)
+  }
+
   setScore(score: number) {
     this.currentScore = score
     this.notifyObservers()

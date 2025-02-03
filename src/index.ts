@@ -44,6 +44,10 @@ function testGameScoreTracker(): void {
   gameScoreTracker.subscribe(observer1)
   gameScoreTracker.subscribe(observer2)
   gameScoreTracker.setScore(100)
+
+  // unsubscribe the observer 2
+  gameScoreTracker.unsubscribe(observer2)
+  gameScoreTracker.setScore(200)
 }
 
 testLogger()

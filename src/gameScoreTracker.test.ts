@@ -19,4 +19,12 @@ describe('GameScoreTracker', () => {
 
     expect(observer.update).toHaveBeenCalledWith(100)
   })
+  it('should allow an observer to unsubscribe', () => {
+    const gameScoreTracker = new GameScoreTracker()
+    const observer: GameObserver = { update: vi.fn() }
+    gameScoreTracker.subscribe(observer)
+    expect(gameScoreTracker.observers).contains(observer)
+    gameScoreTracker.unsubscribe(observer)
+    expect(gameScoreTracker.observers).not.contains(observer)
+  })
 })
