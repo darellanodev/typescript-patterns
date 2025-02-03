@@ -26,4 +26,14 @@ describe('Drink decorators', () => {
     )
     expect(coffeeWithChocolate.getCost()).toBe(1.2) // Assuming chocolate costs 0.2
   })
+  it('should combine multiple decorators', () => {
+    const coffee = new SimpleCoffee()
+    const coffeeWithMilk = new MilkDecorator(coffee)
+    const coffeeWithMilkChocolate = new ChocolateDecorator(coffeeWithMilk)
+
+    expect(coffeeWithMilkChocolate.getDescription()).toBe(
+      'Simple Coffee with Milk with Chocolate'
+    )
+    expect(coffeeWithMilkChocolate.getCost()).toBe(1.7) // 1.0 + 0.5 + 0.2
+  })
 })
