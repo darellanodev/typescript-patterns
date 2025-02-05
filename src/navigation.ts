@@ -8,6 +8,12 @@ export class WalkingStrategy implements RouteStrategy {
   }
 }
 
+export class DrivingStrategy implements RouteStrategy {
+  calculateRoute(from: string, to: string): string {
+    return `Drive from ${from} to ${to}`
+  }
+}
+
 export class NavigationSystem {
   constructor(private strategy: RouteStrategy) {}
 
