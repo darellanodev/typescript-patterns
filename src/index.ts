@@ -1,7 +1,11 @@
 import Logger from './logger'
 import { ExporterFactory, Task } from './exporter'
 import { GameScoreTracker, GameObserver } from './gameScoreTracker'
-import { NavigationSystem, WalkingStrategy } from './navigation'
+import {
+  DrivingStrategy,
+  NavigationSystem,
+  WalkingStrategy,
+} from './navigation'
 
 function testLogger(): void {
   console.log('Test logger\n==========\n')
@@ -54,8 +58,11 @@ function testGameScoreTracker(): void {
 function testNavigation() {
   console.log('Test Navigation\n=======================\n')
   const navigation = new NavigationSystem(new WalkingStrategy())
-  const route = navigation.calculateRoute('A', 'B')
+  let route = navigation.calculateRoute('A', 'B')
+  console.log(route)
 
+  navigation.setStrategy(new DrivingStrategy())
+  route = navigation.calculateRoute('A', 'B')
   console.log(route)
 }
 

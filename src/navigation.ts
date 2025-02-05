@@ -20,4 +20,7 @@ export class NavigationSystem {
   calculateRoute(from: string, to: string): string {
     return this.strategy.calculateRoute(from, to)
   }
+  setStrategy(strategy: RouteStrategy) {
+    this.strategy = strategy
+  }
 }
