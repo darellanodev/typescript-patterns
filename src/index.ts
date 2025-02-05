@@ -1,6 +1,7 @@
 import Logger from './logger'
 import { ExporterFactory, Task } from './exporter'
 import { GameScoreTracker, GameObserver } from './gameScoreTracker'
+import { NavigationSystem, WalkingStrategy } from './navigation'
 
 function testLogger(): void {
   console.log('Test logger\n==========\n')
@@ -50,10 +51,20 @@ function testGameScoreTracker(): void {
   gameScoreTracker.setScore(200)
 }
 
+function testNavigation() {
+  console.log('Test Navigation\n=======================\n')
+  const navigation = new NavigationSystem(new WalkingStrategy())
+  const route = navigation.calculateRoute('A', 'B')
+
+  console.log(route)
+}
+
 testLogger()
 console.log('\n')
 testExporterFactory()
 console.log('\n')
 testGameScoreTracker()
+console.log('\n')
+testNavigation()
 console.log('\n')
 console.log('Finished all the examples\n')
