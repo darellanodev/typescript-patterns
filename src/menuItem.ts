@@ -1,6 +1,7 @@
 export class MenuItem {
   #children: MenuItem[] = []
   name: string
+  execute: () => void = () => {}
   constructor(name: string) {
     this.name = name
   }
@@ -9,5 +10,9 @@ export class MenuItem {
   }
   getChildCount(): number {
     return this.#children.length
+  }
+  executeAll(): void {
+    this.execute()
+    this.#children.forEach((child) => child.executeAll())
   }
 }
