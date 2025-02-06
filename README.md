@@ -18,6 +18,9 @@ A repository to practice with patterns in TypeScript using the TDD methodology.
 
 - Singleton: a logger system
 - Factory: a data exporter with many output formats
+- Strategy: a navigation system
+- Observer: a game score tracker
+- Decorator: a drinks example
 
 ## Installation
 
