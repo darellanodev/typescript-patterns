@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { MenuItem } from './orderMenu'
+import { MenuItem } from './menuItem'
 
 describe('MenuItem', () => {
   it('should create a menu item', () => {

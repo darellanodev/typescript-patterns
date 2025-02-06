@@ -6,6 +6,7 @@ import {
   NavigationSystem,
   WalkingStrategy,
 } from './navigation'
+import { MenuItem } from './menuItem'
 
 function testLogger(): void {
   console.log('Test logger\n==========\n')
@@ -66,6 +67,44 @@ function testNavigation() {
   console.log(route)
 }
 
+function testFoodOrder() {
+  console.log('Test Food Order\n=======================\n')
+  const orderMenu = new MenuItem('New Order')
+  const addBurger = new MenuItem('Burger')
+  const addFries = new MenuItem('Fries')
+  const addDrink = new MenuItem('Drink')
+
+  orderMenu.addChild(addBurger)
+  orderMenu.addChild(addFries)
+  orderMenu.addChild(addDrink)
+
+  const order = {
+    items: [] as string[],
+    total: 0,
+  }
+
+  orderMenu.execute = () => {
+    order.items.push('Order Started')
+  }
+  addBurger.execute = () => {
+    order.items.push('Burger')
+    order.total += 5.99
+  }
+  addFries.execute = () => {
+    order.items.push('Fries')
+    order.total += 2.49
+  }
+  addDrink.execute = () => {
+    order.items.push('Drink')
+    order.total += 1.99
+  }
+
+  orderMenu.executeAll()
+
+  console.log('order total', order.total)
+  console.log('items', order.items)
+}
+
 testLogger()
 console.log('\n')
 testExporterFactory()
@@ -73,5 +112,7 @@ console.log('\n')
 testGameScoreTracker()
 console.log('\n')
 testNavigation()
+console.log('\n')
+testFoodOrder()
 console.log('\n')
 console.log('Finished all the examples\n')
