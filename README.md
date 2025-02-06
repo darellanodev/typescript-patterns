@@ -21,7 +21,7 @@ A repository to practice with patterns in TypeScript using the TDD methodology.
 - Strategy: a navigation system
 - Observer: a game score tracker
 - Decorator: a drinks example
-- Composite: a menu with items
+- Composite: a food order
 
 ## Installation
 
